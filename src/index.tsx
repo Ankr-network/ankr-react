@@ -1,6 +1,6 @@
 import React, { FC, HTMLAttributes, ReactChild, useEffect } from 'react';
-import { Provider } from './components/Provider/Provider';
-import { useNFTsByOwner } from './hooks/useNFTsByOwner';
+import { Provider } from './components';
+import { useNFTsByOwner } from './hooks';
 
 export interface Props extends HTMLAttributes<HTMLDivElement> {
   /** custom content, defaults to 'the snozzberries taste like snozzberries' */
