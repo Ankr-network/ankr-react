@@ -6,7 +6,7 @@ import { AnkrGlobalContext } from '../components';
 
 export const useNftsByOwner = (params: GetNFTsByOwnerRequest) => {
   const { ankrjsProvider } = useContext(AnkrGlobalContext);
-  const { data, error, isLoading } = useQuery(['getNFTs', params.walletAddress], () =>
+  const { data, error, isLoading } = useQuery(['getNFTsByOwner', params.walletAddress], () =>
     getNFTsByOwner({
       provider: ankrjsProvider,
       ...params
