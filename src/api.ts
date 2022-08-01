@@ -6,6 +6,8 @@ import {
   GetTransactionsByHashReply,
   GetLogsRequest,
   GetLogsReply,
+  GetBlocksRequest,
+  GetBlocksReply,
 } from '@ankr.com/ankr.js/dist/types';
 
 interface IGetNFTsParams extends GetNFTsByOwnerRequest {
@@ -36,4 +38,14 @@ type IGetLogsType = (params: IGetLogsParams) => Promise<GetLogsReply>;
 
 export const getLogs: IGetLogsType = async ({ provider, ...params }) => {
   return await provider.getLogs(params);
+};
+
+interface IGetBlocksParams extends GetBlocksRequest {
+  provider: AnkrscanProvider;
+}
+
+type IGetBlocksType = (params: IGetBlocksParams) => Promise<GetBlocksReply>;
+
+export const getBlocks: IGetBlocksType = async ({ provider, ...params }) => {
+  return await provider.getBlocks(params);
 };
