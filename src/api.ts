@@ -8,6 +8,8 @@ import {
   GetLogsReply,
   GetBlocksRequest,
   GetBlocksReply,
+  GetAccountBalanceRequest,
+  GetAccountBalanceReply,
 } from '@ankr.com/ankr.js/dist/types';
 
 interface IGetNFTsParams extends GetNFTsByOwnerRequest {
@@ -48,4 +50,14 @@ type IGetBlocksType = (params: IGetBlocksParams) => Promise<GetBlocksReply>;
 
 export const getBlocks: IGetBlocksType = async ({ provider, ...params }) => {
   return await provider.getBlocks(params);
+};
+
+interface IGetAccountBalanceParams extends GetAccountBalanceRequest {
+  provider: AnkrscanProvider;
+}
+
+type IGetAccountBalanceType = (params: IGetAccountBalanceParams) => Promise<GetAccountBalanceReply>;
+
+export const getAccountBalance: IGetAccountBalanceType = async ({ provider, ...params }) => {
+  return await provider.getAccountBalance(params);
 };
