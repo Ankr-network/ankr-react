@@ -1,1 +1,1 @@
-export * from './useNfts';
+export * from './useNftsByOwner';

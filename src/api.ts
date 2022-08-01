@@ -10,6 +10,6 @@ interface IGetNFTsParams extends GetNFTsByOwnerRequest {
 
 type IGetNFTsType = (params: IGetNFTsParams) => Promise<GetNFTsByOwnerReply>;
 
-export const getNFTs: IGetNFTsType = async ({ provider, ...params }) => {
+export const getNFTsByOwner: IGetNFTsType = async ({ provider, ...params }) => {
   return await provider.getNFTsByOwner(params);
 };

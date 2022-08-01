@@ -1,6 +1,6 @@
 import React, { FC, HTMLAttributes, ReactChild, useEffect } from 'react';
 import { Provider } from './components/Provider/Provider';
-import { useNFTs } from './hooks/useNfts';
+import { useNftsByOwner } from './hooks/useNftsByOwner';
 
 export interface Props extends HTMLAttributes<HTMLDivElement> {
   /** custom content, defaults to 'the snozzberries taste like snozzberries' */
@@ -21,7 +21,7 @@ export const Thing: FC<Props> = ({}) => {
 };
 
 const TestComponent = () => {
-  const { data, error, isLoading } = useNFTs({
+  const { data, error, isLoading } = useNftsByOwner({
     walletAddress: 'old.dhaiwat.eth',
   });
 
