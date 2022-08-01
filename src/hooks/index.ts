@@ -1,4 +1,4 @@
-export * from './useNftsByOwner';
+export * from './useNFTsByOwner';
 export * from './useTransactionsByHash';
 export * from './useLogs';
 export * from './useBlocks';

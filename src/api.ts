@@ -12,13 +12,13 @@ import {
   GetAccountBalanceReply,
 } from '@ankr.com/ankr.js/dist/types';
 
-interface IGetNFTsParams extends GetNFTsByOwnerRequest {
+interface IGetNFTsByOwnerParams extends GetNFTsByOwnerRequest {
   provider: AnkrscanProvider;
 }
 
-type IGetNFTsType = (params: IGetNFTsParams) => Promise<GetNFTsByOwnerReply>;
+type IGetNFTsByOwnerType = (params: IGetNFTsByOwnerParams) => Promise<GetNFTsByOwnerReply>;
 
-export const getNFTsByOwner: IGetNFTsType = async ({ provider, ...params }) => {
+export const getNFTsByOwner: IGetNFTsByOwnerType = async ({ provider, ...params }) => {
   return await provider.getNFTsByOwner(params);
 };
 

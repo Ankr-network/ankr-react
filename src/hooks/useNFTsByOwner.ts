@@ -4,7 +4,7 @@ import { useQuery } from 'react-query';
 import { getNFTsByOwner } from '../api';
 import { AnkrGlobalContext } from '../components';
 
-export const useNftsByOwner = (params: GetNFTsByOwnerRequest) => {
+export const useNFTsByOwner = (params: GetNFTsByOwnerRequest) => {
   const { ankrjsProvider } = useContext(AnkrGlobalContext);
   const { data, error, isLoading } = useQuery(['getNFTsByOwner', params.walletAddress], () =>
     getNFTsByOwner({
