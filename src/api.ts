@@ -10,6 +10,8 @@ import {
   GetBlocksReply,
   GetAccountBalanceRequest,
   GetAccountBalanceReply,
+  GetTokenHoldersRequest,
+  GetTokenHoldersReply,
 } from '@ankr.com/ankr.js/dist/types';
 
 interface IGetNFTsByOwnerParams extends GetNFTsByOwnerRequest {
@@ -60,4 +62,14 @@ type IGetAccountBalanceType = (params: IGetAccountBalanceParams) => Promise<GetA
 
 export const getAccountBalance: IGetAccountBalanceType = async ({ provider, ...params }) => {
   return await provider.getAccountBalance(params);
+};
+
+interface IGetTokenHoldersParams extends GetTokenHoldersRequest {
+  provider: AnkrscanProvider;
+}
+
+type IGetTokenHoldersType = (params: IGetTokenHoldersParams) => Promise<GetTokenHoldersReply>;
+
+export const getTokenHolders: IGetTokenHoldersType = async ({ provider, ...params }) => {
+  return await provider.getTokenHolders(params);
 };
