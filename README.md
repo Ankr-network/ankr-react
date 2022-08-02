@@ -35,8 +35,8 @@ import { useNFTsByOwner } from 'ankr-react';
 
 const Page = () => {
   const {data, error, isLoading} = useNFTsByOwner({
-    walletAddress: 'dhaiwat.eth',
-    blockchain: 'polygon',
+    walletAddress: '0x0ED6Cec17F860fb54E21D154b49DAEFd9Ca04106',
+    blockchain: ['eth', 'polygon'],
   })
 
   return (
