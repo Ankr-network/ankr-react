@@ -31,10 +31,10 @@ export default MyApp;
 3. Use the hooks
 
 ```tsx
-import { useNftsByOwner } from 'ankr-react';
+import { useNFTsByOwner } from 'ankr-react';
 
 const Page = () => {
-  const {data, error, isLoading} = useNftsByOwner({
+  const {data, error, isLoading} = useNFTsByOwner({
     walletAddress: 'dhaiwat.eth',
     blockchain: 'polygon',
   })
