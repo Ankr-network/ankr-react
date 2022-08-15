@@ -1,5 +1,7 @@
 import AnkrscanProvider from '@ankr.com/ankr.js';
 import {
+  GetNFTMetadataRequest,
+  GetNFTMetadataReply,
   GetNFTsByOwnerRequest,
   GetNFTsByOwnerReply,
   GetTransactionsByHashRequest,
@@ -18,6 +20,25 @@ import {
   GetCurrenciesReply,
 } from '@ankr.com/ankr.js/dist/types';
 
+// Get NFT Metadata
+
+interface IGetNFTMetadataParams extends GetNFTMetadataRequest {
+  provider: AnkrscanProvider;
+}
+
+type IGetNFTMetadataType = (
+  params: IGetNFTMetadataParams
+) => Promise<GetNFTMetadataReply>;
+
+export const getNFTMetadata: IGetNFTMetadataType = async ({
+  provider,
+  ...params
+}) => {
+  return await provider.getNFTMetadata(params);
+};
+
+// Get NFTs by owner
+
 interface IGetNFTsByOwnerParams extends GetNFTsByOwnerRequest {
   provider: AnkrscanProvider;
 }
@@ -32,6 +53,8 @@ export const getNFTsByOwner: IGetNFTsByOwnerType = async ({
 }) => {
   return await provider.getNFTsByOwner(params);
 };
+
+// Get Transactions by hash
 
 interface IGetTransactionsByHashParams extends GetTransactionsByHashRequest {
   provider: AnkrscanProvider;
@@ -48,6 +71,8 @@ export const getTransactionsByHash: IGetTransactionsByHashType = async ({
   return await provider.getTransactionsByHash(params);
 };
 
+// Get Logs
+
 interface IGetLogsParams extends GetLogsRequest {
   provider: AnkrscanProvider;
 }
@@ -62,6 +87,8 @@ interface IGetBlocksParams extends GetBlocksRequest {
   provider: AnkrscanProvider;
 }
 
+// Get Blocks
+
 type IGetBlocksType = (params: IGetBlocksParams) => Promise<GetBlocksReply>;
 
 export const getBlocks: IGetBlocksType = async ({ provider, ...params }) => {
@@ -71,6 +98,8 @@ export const getBlocks: IGetBlocksType = async ({ provider, ...params }) => {
 interface IGetAccountBalanceParams extends GetAccountBalanceRequest {
   provider: AnkrscanProvider;
 }
+
+// Get Account Balance
 
 type IGetAccountBalanceType = (
   params: IGetAccountBalanceParams
@@ -87,6 +116,8 @@ interface IGetTokenHoldersParams extends GetTokenHoldersRequest {
   provider: AnkrscanProvider;
 }
 
+// Get Token Holders
+
 type IGetTokenHoldersType = (
   params: IGetTokenHoldersParams
 ) => Promise<GetTokenHoldersReply>;
@@ -102,6 +133,8 @@ interface IGetTokenHoldersCountParams extends GetTokenHoldersCountRequest {
   provider: AnkrscanProvider;
 }
 
+// Get Token Holders Count
+
 type IGetTokenHoldersCountType = (
   params: IGetTokenHoldersCountParams
 ) => Promise<GetTokenHoldersCountReply>;
@@ -112,6 +145,8 @@ export const getTokenHoldersCount: IGetTokenHoldersCountType = async ({
 }) => {
   return await provider.getTokenHoldersCount(params);
 };
+
+// Get Currencies
 
 interface IGetCurrenciesParams extends GetCurrenciesRequest {
   provider: AnkrscanProvider;

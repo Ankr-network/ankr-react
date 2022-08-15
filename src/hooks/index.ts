@@ -1,3 +1,4 @@
+export * from './useNFTMetadata';
 export * from './useNFTsByOwner';
 export * from './useTransactionsByHash';
 export * from './useLogs';
