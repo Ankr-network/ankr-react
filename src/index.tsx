@@ -1,10 +1,10 @@
-import React, { FC, HTMLAttributes, ReactChild, useEffect } from 'react';
+import React, { FC, HTMLAttributes, useEffect } from 'react';
 import { Provider } from './components';
-import { useNFTsByOwner } from './hooks';
+import { useNFTMetadata } from './hooks';
 
 export interface Props extends HTMLAttributes<HTMLDivElement> {
   /** custom content, defaults to 'the snozzberries taste like snozzberries' */
-  children?: ReactChild;
+  children?: React.ReactNode;
 }
 
 // Please do not use types off of a default export module or else Storybook Docs will suffer.
@@ -21,8 +21,10 @@ export const Thing: FC<Props> = ({}) => {
 };
 
 const TestComponent = () => {
-  const { data, error, isLoading } = useNFTsByOwner({
-    walletAddress: 'old.dhaiwat.eth',
+  const { data, error, isLoading } = useNFTMetadata({
+    blockchain: 'eth',
+    contractAddress: '0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D',
+    tokenId: '1',
   });
 
   useEffect(() => {
